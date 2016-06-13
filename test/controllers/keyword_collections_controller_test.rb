@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class KeywordCollectionsControllerTest < ActionController::TestCase
+class KeywordsControllerTest < ActionController::TestCase
   setup do
-    @keyword_collection = keyword_collections(:one)
+    @keyword = keywords(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:keyword_collections)
+    assert_not_nil assigns(:keywords)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class KeywordCollectionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create keyword_collection" do
-    assert_difference('KeywordCollection.count') do
-      post :create, keyword_collection: { bing: @keyword_collection.bing, date: @keyword_collection.date, global_monthly_searches: @keyword_collection.global_monthly_searches, google: @keyword_collection.google, google_base_rank: @keyword_collection.google_base_rank, keywords: @keyword_collection.keywords, site_id: @keyword_collection.site_id, yahoo: @keyword_collection.yahoo }
+  test "should create keyword" do
+    assert_difference('Keyword.count') do
+      post :create, keyword: { bing: @keyword.bing, date: @keyword.date, global_monthly_searches: @keyword.global_monthly_searches, google: @keyword.google, google_base_rank: @keyword.google_base_rank, keywords: @keyword.keywords, site_id: @keyword.site_id, yahoo: @keyword.yahoo }
     end
 
-    assert_redirected_to keyword_collection_path(assigns(:keyword_collection))
+    assert_redirected_to keyword_path(assigns(:keyword))
   end
 
-  test "should show keyword_collection" do
-    get :show, id: @keyword_collection
+  test "should show keyword" do
+    get :show, id: @keyword
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @keyword_collection
+    get :edit, id: @keyword
     assert_response :success
   end
 
-  test "should update keyword_collection" do
-    patch :update, id: @keyword_collection, keyword_collection: { bing: @keyword_collection.bing, date: @keyword_collection.date, global_monthly_searches: @keyword_collection.global_monthly_searches, google: @keyword_collection.google, google_base_rank: @keyword_collection.google_base_rank, keywords: @keyword_collection.keywords, site_id: @keyword_collection.site_id, yahoo: @keyword_collection.yahoo }
-    assert_redirected_to keyword_collection_path(assigns(:keyword_collection))
+  test "should update keyword" do
+    patch :update, id: @keyword, keyword: { bing: @keyword.bing, date: @keyword.date, global_monthly_searches: @keyword.global_monthly_searches, google: @keyword.google, google_base_rank: @keyword.google_base_rank, keywords: @keyword.keywords, site_id: @keyword.site_id, yahoo: @keyword.yahoo }
+    assert_redirected_to keyword_path(assigns(:keyword))
   end
 
-  test "should destroy keyword_collection" do
-    assert_difference('KeywordCollection.count', -1) do
-      delete :destroy, id: @keyword_collection
+  test "should destroy keyword" do
+    assert_difference('Keyword.count', -1) do
+      delete :destroy, id: @keyword
     end
 
-    assert_redirected_to keyword_collections_path
+    assert_redirected_to keywords_path
   end
 end

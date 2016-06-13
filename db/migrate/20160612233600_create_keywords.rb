@@ -1,6 +1,6 @@
-class CreateKeywordCollections < ActiveRecord::Migration
+class CreateKeywords < ActiveRecord::Migration
   def change
-    create_table :keyword_collections do |t|
+    create_table :keywords do |t|
       t.references :site, index: true, foreign_key: true
       t.string :keywords
       t.date :date

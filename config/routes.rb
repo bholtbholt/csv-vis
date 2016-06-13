@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :keyword_collections do
+  resources :keywords do
     collection { post :upload_csv }
   end
   resources :sites

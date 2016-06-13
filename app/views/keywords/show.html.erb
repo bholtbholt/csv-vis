@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @keyword.site %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @keyword.keywords %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @keyword.date %>
+</p>
+
+<p>
+  <strong>Google:</strong>
+  <%= @keyword.google %>
+</p>
+
+<p>
+  <strong>Google base rank:</strong>
+  <%= @keyword.google_base_rank %>
+</p>
+
+<p>
+  <strong>Yahoo:</strong>
+  <%= @keyword.yahoo %>
+</p>
+
+<p>
+  <strong>Bing:</strong>
+  <%= @keyword.bing %>
+</p>
+
+<p>
+  <strong>Global monthly searches:</strong>
+  <%= @keyword.global_monthly_searches %>
+</p>
+
+<%= link_to 'Edit', edit_keyword_path(@keyword) %> |
+<%= link_to 'Back', keywords_path %>

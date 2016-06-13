@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160612233600) do
 
-  create_table "keyword_collections", force: :cascade do |t|
+  create_table "keywords", force: :cascade do |t|
     t.integer  "site_id"
     t.string   "keywords"
     t.date     "date"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160612233600) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "keyword_collections", ["site_id"], name: "index_keyword_collections_on_site_id"
+  add_index "keywords", ["site_id"], name: "index_keywords_on_site_id"
 
   create_table "sites", force: :cascade do |t|
     t.string   "name"
