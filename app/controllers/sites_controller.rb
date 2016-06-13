@@ -15,6 +15,11 @@ class SitesController < ApplicationController
   def edit
   end
 
+  def upload_csv
+    Site.upload_csv(params[:file])
+    redirect_to action: "index", notice: "CSV Uploaded"
+  end
+
   def create
     @site = Site.new(site_params)
 
@@ -55,6 +60,6 @@ class SitesController < ApplicationController
     end
 
     def site_params
-      params.require(:site).permit(:name)
+      params.require(:site).permit(:name, keywords_attributes: [:name, :id, :site_id, keyword_entries_attributes: [:date, :google, :google_base_rank, :yahoo, :bing, :global_monthly_searches, :id, :keyword_id]])
     end
 end

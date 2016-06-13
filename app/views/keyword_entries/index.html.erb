@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Site</th>
+      <th>Keywords</th>
       <th>Date</th>
       <th>Google</th>
       <th>Google base rank</th>
@@ -16,17 +18,19 @@
   </thead>
 
   <tbody>
-    <% @keyword_entries.each do |keyword| %>
+    <% @keyword_entries.each do |entry| %>
       <tr>
-        <td><%= keyword.date %></td>
-        <td><%= keyword.google %></td>
-        <td><%= keyword.google_base_rank %></td>
-        <td><%= keyword.yahoo %></td>
-        <td><%= keyword.bing %></td>
-        <td><%= keyword.global_monthly_searches %></td>
-        <td><%= link_to 'Show', keyword %></td>
-        <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= entry.keyword.site.name %></td>
+        <td><%= entry.keyword.name %></td>
+        <td><%= entry.date %></td>
+        <td><%= entry.google %></td>
+        <td><%= entry.google_base_rank %></td>
+        <td><%= entry.yahoo %></td>
+        <td><%= entry.bing %></td>
+        <td><%= entry.global_monthly_searches %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_keyword_path(entry) %></td>
+        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

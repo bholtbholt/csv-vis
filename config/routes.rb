@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :sites
+  resources :keyword_entries
   resources :keywords
-  resources :keyword_entries do
+  resources :sites do
     collection { post :upload_csv }
   end
   # The priority is based upon order of creation: first created -> highest priority.

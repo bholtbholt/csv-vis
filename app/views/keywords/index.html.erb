@@ -6,12 +6,6 @@
     <tr>
       <th>Site</th>
       <th>Keywords</th>
-      <th>Date</th>
-      <th>Google</th>
-      <th>Google base rank</th>
-      <th>Yahoo</th>
-      <th>Bing</th>
-      <th>Global monthly searches</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,14 +13,8 @@
   <tbody>
     <% @keywords.each do |keyword| %>
       <tr>
-        <td><%= keyword.site %></td>
-        <td><%= keyword.keywords %></td>
-        <td><%= keyword.date %></td>
-        <td><%= keyword.google %></td>
-        <td><%= keyword.google_base_rank %></td>
-        <td><%= keyword.yahoo %></td>
-        <td><%= keyword.bing %></td>
-        <td><%= keyword.global_monthly_searches %></td>
+        <td><%= keyword.site.name %></td>
+        <td><%= keyword.name %></td>
         <td><%= link_to 'Show', keyword %></td>
         <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
         <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -21,11 +21,6 @@ class KeywordEntriesController < ApplicationController
   def edit
   end
 
-  def upload_csv
-    KeywordEntry.upload_csv(params[:file])
-    redirect_to action: "index", notice: "CSV Uploaded"
-  end
-
   # POST /keyword_entries
   # POST /keyword_entries.json
   def create
