@@ -5,7 +5,7 @@ class Site < ActiveRecord::Base
   accepts_nested_attributes_for :keywords, :keyword_entries
 
   def self.upload_csv(file)
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(file.path, headers: true, :header_converters => lambda { |h| h.downcase.gsub(' ', '_') }) do |row|
       site = find_by(name: row["site"]) || new
       site.name = row["site"]
       site.save!
@@ -17,10 +17,10 @@ class Site < ActiveRecord::Base
       keyword_entry = keyword.keyword_entries.build
       keyword_entry.date = row["date"]
       keyword_entry.google = row["google"]
-      keyword_entry.google_base_rank = row["google base rank"]
+      keyword_entry.google_base_rank = row["google_base_rank"]
       keyword_entry.yahoo = row["yahoo"]
       keyword_entry.bing = row["bing"]
-      keyword_entry.global_monthly_searches = row["global monthly searches"]
+      keyword_entry.global_monthly_searches = row["global_monthly_searches"]
       keyword_entry.save!
     end
   end
