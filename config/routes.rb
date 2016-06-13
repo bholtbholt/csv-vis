@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :keyword_collections
+  resources :keyword_collections do
+    collection { post :upload_csv }
+  end
   resources :sites
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

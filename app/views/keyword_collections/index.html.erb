@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<%= form_tag upload_csv_keyword_collections_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag :upload_csv %>
+<% end %>
 <h1>Listing Keyword Collections</h1>
 
 <table>

@@ -1,28 +1,25 @@
 class KeywordCollectionsController < ApplicationController
   before_action :set_keyword_collection, only: [:show, :edit, :update, :destroy]
 
-  # GET /keyword_collections
-  # GET /keyword_collections.json
   def index
     @keyword_collections = KeywordCollection.all
   end
 
-  # GET /keyword_collections/1
-  # GET /keyword_collections/1.json
   def show
   end
 
-  # GET /keyword_collections/new
   def new
     @keyword_collection = KeywordCollection.new
   end
 
-  # GET /keyword_collections/1/edit
   def edit
   end
 
-  # POST /keyword_collections
-  # POST /keyword_collections.json
+  def upload_csv
+    KeywordCollection.upload_csv(params[:file])
+    redirect_to action: "index", notice: "CSV Uploaded"
+  end
+
   def create
     @keyword_collection = KeywordCollection.new(keyword_collection_params)
 
@@ -37,8 +34,6 @@ class KeywordCollectionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /keyword_collections/1
-  # PATCH/PUT /keyword_collections/1.json
   def update
     respond_to do |format|
       if @keyword_collection.update(keyword_collection_params)
@@ -51,8 +46,6 @@ class KeywordCollectionsController < ApplicationController
     end
   end
 
-  # DELETE /keyword_collections/1
-  # DELETE /keyword_collections/1.json
   def destroy
     @keyword_collection.destroy
     respond_to do |format|
@@ -62,12 +55,10 @@ class KeywordCollectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_keyword_collection
       @keyword_collection = KeywordCollection.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_collection_params
       params.require(:keyword_collection).permit(:site_id, :keywords, :date, :google, :google_base_rank, :yahoo, :bing, :global_monthly_searches)
     end
