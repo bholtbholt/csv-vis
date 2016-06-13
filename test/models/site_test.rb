@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SiteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "upload_csv" do
+    assert true
+  end
 end

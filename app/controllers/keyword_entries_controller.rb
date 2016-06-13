@@ -1,28 +1,10 @@
 class KeywordEntriesController < ApplicationController
   before_action :set_keyword_entry, only: [:show, :edit, :update, :destroy]
 
-  # GET /keyword_entries
-  # GET /keyword_entries.json
   def index
     @keyword_entries = KeywordEntry.all
   end
 
-  # GET /keyword_entries/1
-  # GET /keyword_entries/1.json
-  def show
-  end
-
-  # GET /keyword_entries/new
-  def new
-    @keyword_entry = KeywordEntry.new
-  end
-
-  # GET /keyword_entries/1/edit
-  def edit
-  end
-
-  # POST /keyword_entries
-  # POST /keyword_entries.json
   def create
     @keyword_entry = KeywordEntry.new(keyword_entry_params)
 
@@ -37,8 +19,6 @@ class KeywordEntriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /keyword_entries/1
-  # PATCH/PUT /keyword_entries/1.json
   def update
     respond_to do |format|
       if @keyword_entry.update(keyword_entry_params)
@@ -51,8 +31,6 @@ class KeywordEntriesController < ApplicationController
     end
   end
 
-  # DELETE /keyword_entries/1
-  # DELETE /keyword_entries/1.json
   def destroy
     @keyword_entry.destroy
     respond_to do |format|
@@ -62,13 +40,11 @@ class KeywordEntriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_keyword_entry
       @keyword_entry = KeywordEntry.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_entry_params
-      params.fetch(:keyword_entry, {})
+      params.require(:site).permit(:date, :google, :google_base_rank, :yahoo, :bing, :global_monthly_searches)
     end
 end

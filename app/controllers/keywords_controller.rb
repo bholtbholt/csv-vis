@@ -5,16 +5,6 @@ class KeywordsController < ApplicationController
     @keywords = Keyword.all
   end
 
-  def show
-  end
-
-  def new
-    @keyword = Keyword.new
-  end
-
-  def edit
-  end
-
   def create
     @keyword = Keyword.new(keyword_params)
 
@@ -55,6 +45,6 @@ class KeywordsController < ApplicationController
     end
 
     def keyword_params
-      params.require(:keyword).permit(:site_id, :keywords, :date, :google, :google_base_rank, :yahoo, :bing, :global_monthly_searches)
+      params.require(:keyword).permit(:name)
     end
 end

@@ -5,19 +5,9 @@ class SitesController < ApplicationController
     @sites = Site.all
   end
 
-  def show
-  end
-
-  def new
-    @site = Site.new
-  end
-
-  def edit
-  end
-
   def upload_csv
     Site.upload_csv(params[:file])
-    redirect_to action: "index", notice: "CSV Uploaded"
+    redirect_to root_path, notice: 'CSV Uploaded'
   end
 
   def create
