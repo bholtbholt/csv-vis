@@ -15,11 +15,6 @@ class KeywordsController < ApplicationController
   def edit
   end
 
-  def upload_csv
-    Keyword.upload_csv(params[:file])
-    redirect_to action: "index", notice: "CSV Uploaded"
-  end
-
   def create
     @keyword = Keyword.new(keyword_params)
 

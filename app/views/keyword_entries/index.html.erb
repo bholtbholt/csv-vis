@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing Keywords</h1>
+
+<h1>Listing Keyword Entries</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Site</th>
-      <th>Keywords</th>
       <th>Date</th>
       <th>Google</th>
       <th>Google base rank</th>
@@ -17,10 +16,8 @@
   </thead>
 
   <tbody>
-    <% @keywords.each do |keyword| %>
+    <% @keyword_entries.each do |keyword| %>
       <tr>
-        <td><%= keyword.site %></td>
-        <td><%= keyword.keywords %></td>
         <td><%= keyword.date %></td>
         <td><%= keyword.google %></td>
         <td><%= keyword.google_base_rank %></td>
@@ -37,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Keyword', new_keyword_path %>
+<%= link_to 'New Keyword entry', new_keyword_entry_path %>

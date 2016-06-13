@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612233600) do
+ActiveRecord::Schema.define(version: 20160613011438) do
 
-  create_table "keywords", force: :cascade do |t|
-    t.integer  "site_id"
-    t.string   "keywords"
+  create_table "keyword_entries", force: :cascade do |t|
+    t.integer  "keyword_id"
     t.date     "date"
     t.integer  "google"
     t.integer  "google_base_rank"
@@ -24,6 +23,15 @@ ActiveRecord::Schema.define(version: 20160612233600) do
     t.integer  "global_monthly_searches"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  add_index "keyword_entries", ["keyword_id"], name: "index_keyword_entries_on_keyword_id"
+
+  create_table "keywords", force: :cascade do |t|
+    t.integer  "site_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "keywords", ["site_id"], name: "index_keywords_on_site_id"

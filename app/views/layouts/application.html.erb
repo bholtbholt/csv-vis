@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= form_tag upload_csv_keyword_entries_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag :upload_csv %>
+<% end %>
 
 <%= yield %>
 
