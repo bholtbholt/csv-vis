@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160613011438) do
 
   create_table "keyword_entries", force: :cascade do |t|
     t.integer  "keyword_id"
-    t.date     "date"
+    t.string   "date"
     t.integer  "google"
     t.integer  "google_base_rank"
     t.integer  "yahoo"

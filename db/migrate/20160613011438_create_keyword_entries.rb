@@ -2,7 +2,7 @@ class CreateKeywordEntries < ActiveRecord::Migration
   def change
     create_table :keyword_entries do |t|
       t.references :keyword, index: true, foreign_key: true
-      t.date :date
+      t.string :date
       t.integer :google
       t.integer :google_base_rank
       t.integer :yahoo
