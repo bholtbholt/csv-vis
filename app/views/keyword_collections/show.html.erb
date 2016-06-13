@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @keyword_collection.site %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @keyword_collection.keywords %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @keyword_collection.date %>
+</p>
+
+<p>
+  <strong>Google:</strong>
+  <%= @keyword_collection.google %>
+</p>
+
+<p>
+  <strong>Google base rank:</strong>
+  <%= @keyword_collection.google_base_rank %>
+</p>
+
+<p>
+  <strong>Yahoo:</strong>
+  <%= @keyword_collection.yahoo %>
+</p>
+
+<p>
+  <strong>Bing:</strong>
+  <%= @keyword_collection.bing %>
+</p>
+
+<p>
+  <strong>Global monthly searches:</strong>
+  <%= @keyword_collection.global_monthly_searches %>
+</p>
+
+<%= link_to 'Edit', edit_keyword_collection_path(@keyword_collection) %> |
+<%= link_to 'Back', keyword_collections_path %>

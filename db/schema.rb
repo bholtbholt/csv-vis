@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612231911) do
+ActiveRecord::Schema.define(version: 20160612233600) do
+
+  create_table "keyword_collections", force: :cascade do |t|
+    t.integer  "site_id"
+    t.string   "keywords"
+    t.date     "date"
+    t.integer  "google"
+    t.integer  "google_base_rank"
+    t.integer  "yahoo"
+    t.integer  "bing"
+    t.integer  "global_monthly_searches"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "keyword_collections", ["site_id"], name: "index_keyword_collections_on_site_id"
 
   create_table "sites", force: :cascade do |t|
     t.string   "name"

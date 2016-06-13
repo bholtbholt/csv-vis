@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Keyword Collections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Site</th>
+      <th>Keywords</th>
+      <th>Date</th>
+      <th>Google</th>
+      <th>Google base rank</th>
+      <th>Yahoo</th>
+      <th>Bing</th>
+      <th>Global monthly searches</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keyword_collections.each do |keyword_collection| %>
+      <tr>
+        <td><%= keyword_collection.site %></td>
+        <td><%= keyword_collection.keywords %></td>
+        <td><%= keyword_collection.date %></td>
+        <td><%= keyword_collection.google %></td>
+        <td><%= keyword_collection.google_base_rank %></td>
+        <td><%= keyword_collection.yahoo %></td>
+        <td><%= keyword_collection.bing %></td>
+        <td><%= keyword_collection.global_monthly_searches %></td>
+        <td><%= link_to 'Show', keyword_collection %></td>
+        <td><%= link_to 'Edit', edit_keyword_collection_path(keyword_collection) %></td>
+        <td><%= link_to 'Destroy', keyword_collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Keyword collection', new_keyword_collection_path %>

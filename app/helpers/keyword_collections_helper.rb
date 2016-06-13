@@ -1,0 +1,2 @@
+module KeywordCollectionsHelper
+end
