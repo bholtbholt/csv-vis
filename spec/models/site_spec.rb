@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 describe Site do
   describe "#upload_csv" do
@@ -83,9 +82,6 @@ describe Site do
         csv_file.rewind
 
         Site.upload_csv(csv_file)
-
-        binding.pry
-
         expect(KeywordEntry.count).to eq 3
       end
 
@@ -101,9 +97,6 @@ describe Site do
         csv_file.rewind
 
         Site.upload_csv(csv_file)
-
-        binding.pry
-
         expect(KeywordEntry.count).to eq 1
         expect(KeywordEntry.first.google).to eq 50
       end
