@@ -1,19 +1,25 @@
-<h1>Listing Sites</h1>
+<nav class="chart-nav flexbox margin-bottom">
+  <div class="flex-fill">
+    <a href="#" class="btn-blue active">Rank</a>
+    <a href="#" class="btn-blue">Weighted Rank</a>
+  </div>
+  <div class="flex-auto">
+    <a href="#" class="btn-blue">Last Week</a>
+    <a href="#" class="btn-blue">Last 2 Weeks</a>
+    <a href="#" class="btn-blue active">All Time</a>
+  </div>
+</nav>
+<div class="js-line-chart"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
+<%= javascript_include_tag "chart" %>
 
-  <tbody>
-    <% @sites.each do |site| %>
-      <tr>
-        <td><%= site.name %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--
+Add loading screen
+Add legend
+Improve graph display
+Add details (tooltip) when hovering over data point
+axis is doubled?
+Add margin between axis
+filter dates
+transition rank / weighted rank
+-->

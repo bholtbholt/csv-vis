@@ -1,0 +1,29 @@
+path,
+line {
+  fill: none;
+  stroke: transparent;
+}
+
+.axis path,
+.axis line {
+  stroke-width: 2px;
+  stroke: #899598;
+}
+
+.search-engine {
+  opacity: .5;
+  transition: opacity .2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.line {
+  stroke-width: 1px;
+}
+
+.hidden-line {
+  stroke-width: 25px;
+}

@@ -7,20 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p id="notice"><%= notice %></p>
+  <div class="container">
+    <p id="notice"><%= notice %></p>
 
-  <nav>
-    <%= link_to "Sites", sites_path %> |
-    <%= link_to "Keywords", keywords_path %> |
-    <%= link_to "Entries", keyword_entries_path %>
-  </nav>
+    <nav class="main-nav flexbox margin-bottom-lg">
+      <div class="flex-fill">
+        <%= link_to "Sites", sites_path, class: "nav-link" %>
+        <%= link_to "Keywords", keywords_path, class: "nav-link" %>
+        <%= link_to "Entries", keyword_entries_path, class: "nav-link" %>
+      </div>
+      <div class="flex-auto">
+        <%= form_tag upload_csv_sites_path, multipart: true, class: "upload-form" do %>
+          <%= file_field_tag :file %>
+          <%= submit_tag :upload_csv %>
+        <% end %>
+      </div>
+    </nav>
 
-  <%= form_tag upload_csv_sites_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag :upload_csv %>
-  <% end %>
+  <%= yield %>
 
-<%= yield %>
-
+  </div>
 </body>
 </html>
